@@ -1,25 +1,23 @@
 extends layout
 
 block content
-  .container-fluid
-    if messages.error
-      .alert.alert-danger(role='alert')
-        for error in messages.error
-          div= error.msg
-    if messages.success
-      .alert.alert-success(role='alert')
-        for success in messages.success
-          div= success.msg
-    if messages.info
-      .alert.alert-info(role='alert')
-        for info in messages.info
-          div= info.msg
-    .container
-      .row
-        .col-sm-6.col-sm-offset-3
+  .container.h-100
+    .row.h-100.justify-content-center.align-items-center
+      .panel.col-12
+        .panel-heading
+          h3.panel-title Get a presentation
+        .panel-body
+          if messages.success
+            .alert.alert-success(role='alert')
+              for success in messages.success
+                div= success.msg
+          if messages.error
+            .alert.alert-danger(role='alert')
+              for error in messages.error
+                div= error.msg
           form(method='post', action='/app')
-            .input-group.stylish-input-group
-              input.form-control(type='text', placeholder='Search',name='keyword')
-              span.input-group-addon
-                button(type='submit')
-                  span.glyphicon.glyphicon-search
+            .input-group
+              input.form-control(type="text", placeholder="Search for...", aria-label="Keyword", aria-describedby="basic-addon2",name='keyword') 
+              .input-group-append
+                button.btn.btn-outline-secondary(type="submit",formaction="/app") Go!
+                button.btn.btn-outline-secondary(type="submit",formaction="/lucky") I'm Feeling Lucky

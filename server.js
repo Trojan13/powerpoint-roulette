@@ -43,6 +43,7 @@ app.get('/', HomeController.index);
 app.get('/contact', contactController.contactGet);
 app.post('/contact', contactController.contactPost);
 app.post('/app', googleSearchController.appPost);
+app.post('/lucky', googleSearchController.luckyPost);
 
 // Production error handler
 if (app.get('env') === 'production') {
