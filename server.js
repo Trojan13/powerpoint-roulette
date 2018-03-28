@@ -8,7 +8,7 @@ var flash = require('express-flash');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 var dotenv = require('dotenv');
-var mongoose = require('mongoose');
+//var mongoose = require('mongoose');
 
 // Load environment variables from .env file
 dotenv.load();
