@@ -26,13 +26,15 @@ exports.appPost = function (req, res) {
         if (errors) {
             req.flash('error', errors);
             return res.redirect('/');
-        } else if (data.links.length <= 0) {
+        } else if (data.links.length <= 1) {
             req.flash('error',  { param: 'keyword', msg: 'No results found!', value: '' });
             return res.redirect('/');
         }
+
         let tmpMax = MAX_RESULTS;
-        if (MAX_RESULTS > data.links.length) {
-            tmpMax = data.links.length
+        
+        if (MAX_RESULTS => data.links.length) {
+            tmpMax = data.links.length;
         }
         let rnd = Math.round(Math.random() * (tmpMax - 1) + 1);
         res.render('result', {
