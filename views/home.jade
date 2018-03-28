@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .container-fluid
+    if messages.error
+      .alert.alert-danger(role='alert')
+        for error in messages.error
+          div= error.msg
+    if messages.success
+      .alert.alert-success(role='alert')
+        for success in messages.success
+          div= success.msg
+    if messages.info
+      .alert.alert-info(role='alert')
+        for info in messages.info
+          div= info.msg
+    .container
+      .row
+        .col-sm-6.col-sm-offset-3
+          form(method='post', action='/app')
+            .input-group.stylish-input-group
+              input.form-control(type='text', placeholder='Search',name='keyword')
+              span.input-group-addon
+                button(type='submit')
+                  span.glyphicon.glyphicon-search
